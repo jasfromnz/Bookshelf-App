@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const shelfSchema = new Schema({
     bookName: String,
-    status: { type: String, enum: ['Read', 'Reading', 'To Read'], default: 'To Read' },
+    status: { type: String, enum: ['read', 'reading', 'toRead'], default: 'toRead' },
     positionIdx: { type: Number, default: 0 }
 }, { timestamps: true })
 
