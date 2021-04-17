@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const shelvesCtrl = require('../controllers/shelves');
 
-
-router.get('/', shelvesCtrl.index);
+router.get('/', (req, res) => {
+    res.redirect('/shelves');
+});
 
 module.exports = router;

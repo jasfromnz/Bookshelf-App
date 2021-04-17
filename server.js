@@ -7,6 +7,7 @@ const app = express();
 require('./config/database');
 
 const indexRouter = require('./routes/index');
+const shelvesRouter = require('./routes/shelves');
 
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
@@ -14,6 +15,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
+app.use('/shelves', shelvesRouter)
 
 app.listen(port, () => { 
     console.log('Express is listening');

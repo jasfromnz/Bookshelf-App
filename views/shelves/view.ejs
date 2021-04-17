@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<ul>
+<% books.forEach(function(s) { %>
+    <li><%= s.bookName %></li>
+    <li><%= s.status %></li>
+<% }); %>
+</ul>
+
+<form action="/shelves" method="POST">
+    <label>Book Title
+        <input type="text" name="bookName">
+    </label>
+    <input type="submit">
+</form>
+
+<%- include('../partials/footer') %>

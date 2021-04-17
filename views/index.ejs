@@ -4,8 +4,9 @@
 <% shelves.forEach(function(s) { %>
         <li><%= s.bookName %></li>
         <li><%= s.status %></li>
-        <li><%= s.positionIdx %></li>
 <% }); %>
 </ul>
+
+<a href="/shelves/toRead/view">Books To Read</a>
 
 <%- include('./partials/footer') %>
