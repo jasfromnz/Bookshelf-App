@@ -3,11 +3,10 @@
 <ul>
 <% books.forEach(function(s) { %>
     <li><%= s.bookName %></li>
-    <li><%= s.status %></li>
 <% }); %>
 </ul>
 
-<form action="/shelves/toRead/view" method="POST">
+<form action="/shelves/<%= status %>/view" method="POST">
     <label>Book Title
         <input type="text" name="bookName">
     </label>

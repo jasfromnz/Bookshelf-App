@@ -14,7 +14,7 @@ function index(req, res) {
 
 function getShelf(req, res) {
     Shelf.find({status: req.params.status}, (err, books) => { 
-        res.render('shelves/view', { books });
+        res.render('shelves/view', { books, status: req.params.status });
     });
 }
 
