@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connectionString = 'mongodb+srv://admin:abc1234@cluster0.ct2zx.mongodb.net/bookshelf-app?retryWrites=true&w=majority';
+const connectionString = process.env.DATABASE_URI;
 
 mongoose.connect(connectionString, {
     useNewUrlParser: true,

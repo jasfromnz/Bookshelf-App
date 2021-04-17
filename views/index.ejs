@@ -1,5 +1,11 @@
-<<%- include('../partials/header') %>
+<%- include('./partials/header') %>
 
+<ul>
+<% shelves.forEach(function(s) { %>
+        <li><%= s.bookName %></li>
+        <li><%= s.status %></li>
+        <li><%= s.positionIdx %></li>
+<% }); %>
+</ul>
 
-
-<%- include('../partials/footer') %>
+<%- include('./partials/footer') %>

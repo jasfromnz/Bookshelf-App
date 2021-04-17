@@ -1,17 +1,20 @@
 const express = require('express');
 const morgan = require('morgan');
-require("./config/database");
-const app = express();
+const port = process.env.PORT || 3000;
 
-// require routers
+require('dotenv').config();
+const app = express();
+require('./config/database');
+
+const indexRouter = require('./routes/index');
 
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(express.static('public'));
-app.use(urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
-// set routes
+app.use('/', indexRouter);
 
-app.listen('3000', function() {
+app.listen(port, () => { 
     console.log('Express is listening');
 });
