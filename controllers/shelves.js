@@ -2,8 +2,8 @@ const Shelf = require('../models/shelf');
 
 module.exports = {
     index,
-    getShelf,
-    addBook,
+    add,
+    delete: deleteBook,
 }
 
 function index(req, res) {
@@ -12,15 +12,20 @@ function index(req, res) {
     });
 }
 
-function getShelf(req, res) {
-    Shelf.find({status: req.params.status}, (err, books) => { 
-        res.render('shelves/view', { books, status: req.params.status });
+function add(req, res) {
+    Shelf.create(req.body, (err, book) => {
+        res.redirect('/shelves');
     });
 }
 
-function addBook(req, res) {
-    req.body.status = req.params.status;
-    Shelf.create(req.body, (err, book) => {
-        res.redirect(`/shelves/${book.status}/view`);
+function deleteBook(req, res) {
+    console.log(req.params.id);
+    Shelf.findByIdAndDelete(req.params.id, function(err) {
+        if (err) { 
+            console.log(err); 
+        } else { 
+            console.log('deleted');
+        };
+        res.redirect('/shelves');
     });
 }

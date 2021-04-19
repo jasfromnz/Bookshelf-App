@@ -2,11 +2,31 @@
 
 <ul>
 <% shelves.forEach(function(s) { %>
-        <li><%= s.bookName %></li>
-        <li><%= s.status %></li>
+        <li>
+                <p><%= s.bookName %>: <%= s.status %></p>
+                <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
+                        <button type="submit">🗑</button>
+                </form> 
+        </li>
 <% }); %>
 </ul>
 
+<form action="/shelves" method="POST">
+        <label>Book Title
+            <input type="text" name="bookName">
+        </label>
+        <label>Status
+                <select name="status">
+                        <option value="reading">Reading</option>
+                        <option value="toRead">Want to Read</option>
+                        <option value="read">Already Read</option>
+                </select>
+        </label>
+        <input type="submit">
+    </form>
+
 <a href="/shelves/toRead/view">Books To Read</a>
+<a href="/shelves/reading/view">Currently Reading</a>
+<a href="/shelves/read/view">Books You've Read</a>
 
 <%- include('./partials/footer') %>
