@@ -20,7 +20,6 @@ function add(req, res) {
 }
 
 function deleteBook(req, res) {
-    console.log(req.params.id);
     Shelf.findByIdAndDelete(req.params.id, function(err) {
         if (err) { 
             console.log(err); 
@@ -28,3 +27,5 @@ function deleteBook(req, res) {
         res.redirect(`/shelves/${req.params.status}/view`);
     });
 }
+
+

@@ -7,6 +7,7 @@
                 <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
                         <button type="submit">🗑</button>
                 </form> 
+                <a href="/shelves/<%= s._id%>/edit">✏</a>
         </li>
 <% }); %>
 </ul>

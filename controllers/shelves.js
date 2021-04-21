@@ -4,6 +4,7 @@ module.exports = {
     index,
     add,
     delete: deleteBook,
+    edit,
 }
 
 function index(req, res) {
@@ -19,13 +20,16 @@ function add(req, res) {
 }
 
 function deleteBook(req, res) {
-    console.log(req.params.id);
     Shelf.findByIdAndDelete(req.params.id, function(err) {
         if (err) { 
             console.log(err); 
-        } else { 
-            console.log('deleted');
         };
         res.redirect('/shelves');
+    });
+}
+
+function edit(req, res) {
+    Shelf.findById(req.params.id, (err, book) => {
+        res.render('shelves/edit', { book });
     });
 }
