@@ -3,6 +3,7 @@ const Shelf = require('../models/shelf');
 module.exports = {
     getShelf,
     add,
+    delete: deleteBook,
 }
 
 function getShelf(req, res) {
@@ -15,5 +16,15 @@ function add(req, res) {
     req.body.status = req.params.status;
     Shelf.create(req.body, (err, book) => {
         res.redirect(`/shelves/${book.status}/view`);
+    });
+}
+
+function deleteBook(req, res) {
+    console.log(req.params.id);
+    Shelf.findByIdAndDelete(req.params.id, function(err) {
+        if (err) { 
+            console.log(err); 
+        };
+        res.redirect(`/shelves/${req.params.status}/view`);
     });
 }

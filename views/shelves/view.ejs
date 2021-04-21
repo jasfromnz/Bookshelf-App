@@ -3,6 +3,9 @@
 <ul>
 <% books.forEach(function(s) { %>
     <li><%= s.bookName %></li>
+    <form action="/shelves/<%= status %>/<%= s._id %>?_method=DELETE" method="POST">
+        <button type="submit">🗑</button>
+    </form>
 <% }); %>
 </ul>
 
