@@ -2,12 +2,12 @@
 
 <ul>
 <% shelves.forEach(function(s) { %>
-        <li>
-                <p><%= s.bookName %>: <%= s.status %></p>
+        <li class="main">
+                <p id="title"><%= s.bookName %>: <%= s.status %></p>
                 <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                        <button type="submit">🗑</button>
+                        <button id="delete" type="submit">🗑</button>
                 </form> 
-                <a href="/shelves/<%= s._id%>/edit">✏</a>
+                <a id="edit" href="/shelves/<%= s._id%>/edit">✏</a>
         </li>
 <% }); %>
 </ul>

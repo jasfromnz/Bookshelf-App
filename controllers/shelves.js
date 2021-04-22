@@ -10,6 +10,11 @@ module.exports = {
 
 function index(req, res) {
     Shelf.find({}, (err, shelves) => {
+        shelves.forEach(function(book) {
+            if (book.status === "toRead") {
+                book.status = "To Read";
+            }
+        });
         res.render('index', { shelves });
     });
 }
