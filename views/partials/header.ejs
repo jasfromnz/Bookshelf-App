@@ -9,7 +9,14 @@
 </head>
 <body>
     <nav>
-        <a href="/shelves">Your Shelves</a>
+        <div class="dropdown">
+            <a class="dropdown-button" href="/shelves">Your Shelves</a>
+            <div class="dropdown-content">
+                <a class="dropdown-status" href="/shelves/reading/view">Reading</a>
+                <a class="dropdown-status" href="/shelves/toRead/view">To Read</a>
+                <a class="dropdown-status" href="/shelves/read/view">Read</a>
+            </div>
+        </div>
         <a href="/new/book">Add a Book</a>
         <a href="/new/author">Add an Author</a>
     </nav>

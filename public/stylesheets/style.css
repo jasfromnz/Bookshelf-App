@@ -71,3 +71,20 @@ button.delete:hover, a.edit:hover {
 p#title {
     text-transform: capitalize;
 }
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+}
+
+.dropdown-content a {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
