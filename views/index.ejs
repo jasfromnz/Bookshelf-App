@@ -5,14 +5,14 @@
         <li class="main">
                 <p id="title"><%= s.bookName %>: <%= s.status %></p>
                 <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                        <button id="delete" type="submit">🗑</button>
+                        <button class="delete" type="submit">🗑</button>
                 </form> 
-                <a id="edit" href="/shelves/<%= s._id%>/edit">✏</a>
+                <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
         </li>
 <% }); %>
 </ul>
 
-<form action="/shelves" method="POST">
+<form class="add" action="/shelves" method="POST">
         <label>Book Title
             <input type="text" name="bookName">
         </label>
@@ -23,11 +23,14 @@
                         <option value="read">Already Read</option>
                 </select>
         </label>
-        <input type="submit">
+        <input type="submit" value="Add Book">
     </form>
 
-<a href="/shelves/toRead/view">Books To Read</a>
-<a href="/shelves/reading/view">Currently Reading</a>
-<a href="/shelves/read/view">Books You've Read</a>
+<div class="status">
+        <a class="status" href="/shelves/toRead/view">Books To Read</a>
+        <a class="status" href="/shelves/reading/view">Currently Reading</a>
+        <a class="status" href="/shelves/read/view">Books You've Read</a>
+</div>
+
 
 <%- include('./partials/footer') %>

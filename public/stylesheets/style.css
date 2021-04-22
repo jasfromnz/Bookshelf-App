@@ -30,3 +30,23 @@ li {
 li > * {
     margin-right: 10px;
 }
+
+form.add {
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+form.add > * {
+    margin-right: 10px;
+}
+
+div.status {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+a.status {
+    margin-right: 10px;
+}

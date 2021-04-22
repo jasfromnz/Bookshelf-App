@@ -5,18 +5,18 @@
     <li class="status">
         <p id="title"><%= s.bookName %></p>
         <form action="/shelves/<%= status %>/<%= s._id %>?_method=DELETE" method="POST">
-            <button id="delete" type="submit">🗑</button>
+            <button class="delete" type="submit">🗑</button>
         </form>
     </li>
     
 <% }); %>
 </ul>
 
-<form action="/shelves/<%= status %>/view" method="POST">
+<form class="add" action="/shelves/<%= status %>/view" method="POST">
     <label>Book Title
         <input type="text" name="bookName">
     </label>
-    <input type="submit">
+    <input type="submit" value="Add Book">
 </form>
 
 <%- include('../partials/footer') %>
