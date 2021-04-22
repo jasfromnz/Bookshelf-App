@@ -50,3 +50,24 @@ div.status {
 a.status {
     margin-right: 10px;
 }
+
+button.delete {
+    background-color: white;
+    border: none;
+    font-size: 22px;
+    padding: 0;
+}
+
+a.edit {
+    color: black;
+    text-decoration: none;
+    padding: 1px;
+}
+
+button.delete:hover, a.edit:hover {
+    background-color: lightskyblue;
+}
+
+p#title {
+    text-transform: capitalize;
+}

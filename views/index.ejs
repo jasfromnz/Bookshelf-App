@@ -1,15 +1,42 @@
 <%- include('./partials/header') %>
 
-<ul>
-<% shelves.forEach(function(s) { %>
-        <li class="main">
-                <p id="title"><%= s.bookName %>: <%= s.status %></p>
-                <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                        <button class="delete" type="submit">🗑</button>
-                </form> 
-                <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
-        </li>
-<% }); %>
+<ul class="reading">
+        <h1>Reading</h1>
+        <% reading.forEach(function(s) { %>
+                <li class="main">
+                        <p id="title"><%= s.bookName %></p>
+                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
+                                <button class="delete" type="submit">🗑</button>
+                        </form> 
+                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
+                </li>
+        <% }); %>
+</ul>
+
+<ul class="toRead">
+        <h1>To Read</h1>
+        <% toRead.forEach(function(s) { %>
+                <li class="main">
+                        <p id="title"><%= s.bookName %></p>
+                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
+                                <button class="delete" type="submit">🗑</button>
+                        </form> 
+                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
+                </li>
+        <% }); %>
+</ul>
+
+<ul class="read">
+        <h1>Read</h1>
+        <% read.forEach(function(s) { %>
+                <li class="main">
+                        <p id="title"><%= s.bookName %></p>
+                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
+                                <button class="delete" type="submit">🗑</button>
+                        </form> 
+                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
+                </li>
+        <% }); %>
 </ul>
 
 <form class="add" action="/shelves" method="POST">
