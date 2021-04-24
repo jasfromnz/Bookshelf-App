@@ -1,56 +1,5 @@
 <%- include('./partials/header') %>
 
-<ul class="reading">
-        <h1>Reading</h1>
-        <% reading.forEach(function(s) { %>
-                <li class="main">
-                        <p id="title"><%= s.bookName %></p>
-                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                                <button class="delete" type="submit">🗑</button>
-                        </form> 
-                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
-                </li>
-        <% }); %>
-</ul>
-
-<ul class="toRead">
-        <h1>To Read</h1>
-        <% toRead.forEach(function(s) { %>
-                <li class="main">
-                        <p id="title"><%= s.bookName %></p>
-                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                                <button class="delete" type="submit">🗑</button>
-                        </form> 
-                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
-                </li>
-        <% }); %>
-</ul>
-
-<ul class="read">
-        <h1>Read</h1>
-        <% read.forEach(function(s) { %>
-                <li class="main">
-                        <p id="title"><%= s.bookName %></p>
-                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                                <button class="delete" type="submit">🗑</button>
-                        </form> 
-                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
-                </li>
-        <% }); %>
-</ul>
-
-<form class="add" action="/shelves" method="POST">
-        <label>Book Title
-            <input type="text" name="bookName">
-        </label>
-        <label>Status
-                <select name="status">
-                        <option value="reading">Reading</option>
-                        <option value="toRead">Want to Read</option>
-                        <option value="read">Already Read</option>
-                </select>
-        </label>
-        <input type="submit" value="Add Book">
-    </form>
+<h1>Welcome to Bookshelf!</h1>
 
 <%- include('./partials/footer') %>
