@@ -43,7 +43,9 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    req.user.books.id(req.params.id).replaceOne({ _id: req.params.id }, req.body, (err, book) => {
-            res.redirect('/shelves');
-    });
+    const bookIdx = req.user.books.findIndex(book => (book.id === req.params.id));
+    req.user.books.splice(bookIdx, 1, req.body);
+    req.user.save(function(err) {
+        res.redirect('/shelves');        
+    })
 }

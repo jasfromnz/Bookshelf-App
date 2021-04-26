@@ -28,8 +28,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/shelves', readersRouter);
-app.use('/shelves', shelvesRouter);
+app.use('/shelves', isLoggedIn, readersRouter);
+app.use('/shelves', isLoggedIn, shelvesRouter);
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/auth/google');
+  };
 
 app.listen(port, () => { 
     console.log('Express is listening');
