@@ -5,24 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Bookshelf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Stacks</title>
 </head>
 <body>
-    <nav>
-        <div class="dropdown">
-            <a class="dropdown-button" href="/shelves">Your Shelves</a>
-            <div class="dropdown-content">
-                <a class="dropdown-status" href="/shelves/reading/view">Reading</a>
-                <a class="dropdown-status" href="/shelves/toRead/view">To Read</a>
-                <a class="dropdown-status" href="/shelves/read/view">Read</a>
+    <div id="header" class="cyan darken-3">
+        <h1 id="title">Stacks</h1>
+        <div id="nav">
+            <a class="nav-link" class="dropdown-trigger btn" href="/shelves" data-target="dropdown">Your Shelves</a>
+            <ul id = "dropdown" class = "dropdown-content">
+                <li class="dropdown-status"><a href="/shelves/reading/view">Reading</a></li>
+                <li class="dropdown-status"><a href="/shelves/toRead/view">To Read</a></li>
+                <li class="dropdown-status"><a href="/shelves/read/view">Read</a></li>
+            </ul>
+            <div class="login">
+                <% if (user) { %>
+                    <a class="nav-link" href="/logout">Log Out</a>
+                <% } else { %>
+                    <a class="nav-link" href="/auth/google">Login with Google</a>
+                <% }; %>
             </div>
         </div>
-        <div class="login">
-            <% if (user) { %>
-                <a href="/logout">Log Out</a>
-            <% } else { %>
-                <a href="/auth/google">Login with Google</a>
-            <% }; %>
-        </div>
-    </nav>
+    </div>
     <main>

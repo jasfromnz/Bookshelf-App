@@ -1,42 +1,63 @@
 <%- include('../partials/header') %>
 
 <ul class="reading">
-        <h1>Reading</h1>
-        <% reading.forEach(function(s) { %>
-                <li class="main">
-                        <p id="title"><%= s.bookName %></p>
-                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                                <button class="delete" type="submit">🗑</button>
-                        </form> 
-                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
+        <h1 class="shelf-title">Reading</h1>
+        <div class="books">
+                <% for (let i=0; i<4; i++) { %>
+                        <% if (!reading[i]) { } else { %>
+                                <li class="main" id="book<%= i %>">
+                                        <p id="title"><%= reading[i].bookName %></p>
+                                        <form action="/shelves/<%= reading[i]._id %>?_method=DELETE" method="POST">
+                                                <button class="delete" type="submit">🗑</button>
+                                        </form> 
+                                        <a class="edit" href="/shelves/<%= reading[i]._id%>/edit">✏</a>
+                                </li>
+                        <% }; %>
+                <% }; %>
+                <li>
+                        <a href="/shelves/reading">See More</a>
                 </li>
-        <% }); %>
+        </div>
 </ul>
 
 <ul class="toRead">
-        <h1>To Read</h1>
-        <% toRead.forEach(function(s) { %>
-                <li class="main">
-                        <p id="title"><%= s.bookName %></p>
-                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                                <button class="delete" type="submit">🗑</button>
-                        </form> 
-                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
+        <h1 class="shelf-title">To Read</h1>
+        <div class="books">
+                <% for (let i=0; i<4; i++) { %>
+                        <% if (!toRead[i]) { } else { %>
+                                <li class="main" id="book<%= i %>">
+                                        <p id="title"><%= toRead[i].bookName %></p>
+                                        <form action="/shelves/<%= toRead[i]._id %>?_method=DELETE" method="POST">
+                                                <button class="delete" type="submit">🗑</button>
+                                        </form> 
+                                        <a class="edit" href="/shelves/<%= toRead[i]._id%>/edit">✏</a>
+                                </li>
+                        <% }; %>
+                <% }; %>
+                <li>
+                        <a href="/shelves/toRead">See More</a>
                 </li>
-        <% }); %>
+        </div>
 </ul>
 
 <ul class="read">
-        <h1>Read</h1>
-        <% read.forEach(function(s) { %>
-                <li class="main">
-                        <p id="title"><%= s.bookName %></p>
-                        <form action="/shelves/<%= s._id %>?_method=DELETE" method="POST">
-                                <button class="delete" type="submit">🗑</button>
-                        </form> 
-                        <a class="edit" href="/shelves/<%= s._id%>/edit">✏</a>
+        <h1 class="shelf-title">Read</h1>
+        <div class="books">
+                <% for (let i=0; i<4; i++) { %>
+                        <% if (!read[i]) { } else { %>
+                                <li class="main" id="book<%= i %>">
+                                        <p id="title"><%= read[i].bookName %></p>
+                                        <form action="/shelves/<%= read[i]._id %>?_method=DELETE" method="POST">
+                                                <button class="delete" type="submit">🗑</button>
+                                        </form> 
+                                        <a class="edit" href="/shelves/<%= read[i]._id%>/edit">✏</a>
+                                </li>
+                        <% }; %>
+                <% }; %>
+                <li>
+                        <a href="/shelves/read">See More</a>
                 </li>
-        <% }); %>
+        </div>
 </ul>
 
 <form class="add" action="/shelves" method="POST">
