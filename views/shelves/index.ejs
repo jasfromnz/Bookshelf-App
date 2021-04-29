@@ -1,4 +1,11 @@
 <%- include('../partials/header') %>
+<script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('select');
+                var options = {};
+                var instances = M.FormSelect.init(elems, options);
+        });
+</script>
 
 <ul class="reading">
         <h1 class="shelf-title">Reading</h1>
@@ -14,8 +21,8 @@
                                 </li>
                         <% }; %>
                 <% }; %>
-                <li>
-                        <a href="/shelves/reading">See More</a>
+                <li class="see-more">
+                        <a class="see-more" href="/shelves/reading/view">See More</a>
                 </li>
         </div>
 </ul>
@@ -34,8 +41,8 @@
                                 </li>
                         <% }; %>
                 <% }; %>
-                <li>
-                        <a href="/shelves/toRead">See More</a>
+                <li class="see-more">
+                        <a class="see-more" href="/shelves/toRead/view">See More</a>
                 </li>
         </div>
 </ul>
@@ -54,24 +61,28 @@
                                 </li>
                         <% }; %>
                 <% }; %>
-                <li>
-                        <a href="/shelves/read">See More</a>
+                <li class="see-more">
+                        <a class="see-more" href="/shelves/read/view">See More</a>
                 </li>
         </div>
 </ul>
 
-<form class="add" action="/shelves" method="POST">
-        <label>Book Title
-            <input type="text" name="bookName">
-        </label>
-        <label>Status
-                <select name="status">
-                        <option value="reading">Reading</option>
-                        <option value="toRead">Want to Read</option>
-                        <option value="read">Already Read</option>
-                </select>
-        </label>
-        <input type="submit" value="Add Book">
-    </form>
+<form class="col s12" id="add-form" action="/shelves" method="POST">
+        <div class="add-form">
+                <div class="input-field col s12">
+                        <input type="text" name="bookName">
+                        <label for="bookName">Book Title</label>
+                </div>
+                <div class="input-field col s12">
+                        <select name="status">
+                                <option disabled selected>Choose Status</option>
+                                <option value="reading">Reading</option>
+                                <option value="toRead">Want to Read</option>
+                                <option value="read">Already Read</option>
+                        </select>
+                </div>
+                <input class="add-submit" type="submit" value="Add Book">
+        </div>
+</form>
 
 <%- include('../partials/footer') %>

@@ -12,11 +12,14 @@
 <% }); %>
 </ul>
 
-<form class="add" action="/shelves/<%= status %>/view" method="POST">
-    <label>Book Title
-        <input type="text" name="bookName">
-    </label>
-    <input type="submit" value="Add Book">
+<form class="col s12" id="add-form" action="/shelves/<%= status %>/view" method="POST">
+    <div class="add-form">
+            <div class="input-field col s12">
+                    <input type="text" name="bookName">
+                    <label for="bookName">Book Title</label>
+            </div>
+            <input class="add-submit" type="submit" value="Add Book">
+    </div>
 </form>
 
 <%- include('../partials/footer') %>

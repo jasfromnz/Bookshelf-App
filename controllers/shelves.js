@@ -26,6 +26,8 @@ function add(req, res) {
 }
 
 function deleteBook(req, res) {
-    req.user.book.findByIdAndDelete(req.params.id);
-    res.redirect(`/shelves/${req.params.status}/view`);
+    req.user.books.pull(req.params.id);
+    req.user.save(function(err) {
+        res.redirect(`/shelves/${req.params.status}/view`);
+    });
 }
