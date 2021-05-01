@@ -45,22 +45,27 @@ a.dropdown-trigger {
 div#home-page {
     display: flex;
     flex-direction: column;
-    background-color: #00838f;
+    background-color: #00acc1;
     margin: 50px auto auto auto;
     width: fit-content;
     padding: 0px 15px 0px 15px;
     align-items: center;
-    border-radius: 5%;
+    border-radius: 1%;
 }
 
 h1#home-title {
     color: white;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 p#home-message {
     color: white;
-    font-size: 36px;
+    font-size: 24px;
+}
+
+a#home-login {
+    color: #006064;
+    text-decoration: underline;
 }
 
 ul {
