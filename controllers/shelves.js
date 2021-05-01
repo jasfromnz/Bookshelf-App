@@ -8,16 +8,17 @@ module.exports = {
 
 function getShelf(req, res) { 
     console.log(req.user);
-    const books = [];
+    let books = [];
     req.user.books.forEach(function(book){
         if(book.status === req.params.status){
             books.push(book);
         };
     });
+    let title = req.params.status;
     if (req.params.status === "toRead") {
-        req.params.status = "To Read";
+        title = "To Read";
     };
-    res.render('shelves/view', { books, status: req.params.status, user: req.user });
+    res.render('shelves/view', { books, title, status: req.params.status, user: req.user });
 }
 
 function add(req, res) {
