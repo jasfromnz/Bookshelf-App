@@ -13,7 +13,10 @@ function getShelf(req, res) {
         if(book.status === req.params.status){
             books.push(book);
         };
-    })
+    });
+    if (req.params.status === "toRead") {
+        req.params.status = "To Read";
+    };
     res.render('shelves/view', { books, status: req.params.status, user: req.user });
 }
 

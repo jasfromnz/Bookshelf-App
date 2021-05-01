@@ -35,6 +35,7 @@ div#nav {
 a.nav-link {
     color: white;
     padding: 10px;
+    margin: auto 10px auto 10px;
 }
 
 a.dropdown-trigger {
@@ -129,7 +130,7 @@ div.book-nav {
     width: 100%;
 }
 
-button.delete {
+button.delete, button.view-delete {
     background-color: #00bcd4;
     border: none;
     font-size: 22px;
@@ -141,6 +142,36 @@ a.edit {
     color: black;
     text-decoration: none;
     padding: 1px;
+}
+
+h1.status-title {
+    color: white;
+    text-transform: capitalize;
+    margin-left: 80px;
+}
+
+ul.status-view {
+    margin-top: 0px;
+}
+
+li.status {
+    background-color: #00acc1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+p.view-title {
+    margin-right: 15px;
+}
+
+button.view-delete {
+    background-color: #00acc1;
 }
 
 #add-form {
@@ -156,6 +187,7 @@ a.edit {
 div.add-form {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: fit-content;
 }
 
@@ -166,4 +198,10 @@ div.input-field {
 div.add-form > * {
     margin-right: 10px;
     background-color: white;
+}
+
+input.add-submit {
+    height: 40px;
+    border-radius: 5%;
+    border-width: 1px;
 }

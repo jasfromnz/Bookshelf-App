@@ -1,11 +1,13 @@
 <%- include('../partials/header') %>
 
-<ul>
+<h1 class="status-title"><%= status %></h1>
+
+<ul class="status-view">
 <% books.forEach(function(s) { %>
     <li class="status">
         <p class="view-title"><%= s.bookName %></p>
         <form action="/shelves/<%= status %>/<%= s._id %>?_method=DELETE" method="POST">
-            <button class="delete" type="submit">🗑</button>
+            <button class="view-delete" type="submit">🗑</button>
         </form>
     </li>
     
