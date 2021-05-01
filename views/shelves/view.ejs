@@ -3,7 +3,7 @@
 <ul>
 <% books.forEach(function(s) { %>
     <li class="status">
-        <p id="title"><%= s.bookName %></p>
+        <p class="view-title"><%= s.bookName %></p>
         <form action="/shelves/<%= status %>/<%= s._id %>?_method=DELETE" method="POST">
             <button class="delete" type="submit">🗑</button>
         </form>

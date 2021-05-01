@@ -13,11 +13,14 @@
                 <% for (let i=0; i<4; i++) { %>
                         <% if (!reading[i]) { } else { %>
                                 <li class="main" id="book<%= i %>">
-                                        <p id="title"><%= reading[i].bookName %></p>
-                                        <form action="/shelves/<%= reading[i]._id %>?_method=DELETE" method="POST">
-                                                <button class="delete" type="submit">🗑</button>
-                                        </form> 
-                                        <a class="edit" href="/shelves/<%= reading[i]._id%>/edit">✏</a>
+                                        <p class="shelves-title"><%= reading[i].bookName %></p>
+                                        <div class="book-nav">
+                                                <form action="/shelves/<%= reading[i]._id %>?_method=DELETE" method="POST">
+                                                        <button class="delete" type="submit">🗑</button>
+                                                </form> 
+                                                <a class="edit" href="/shelves/<%= reading[i]._id%>/edit">✏</a>
+                                        </div>
+                                        
                                 </li>
                         <% }; %>
                 <% }; %>
@@ -33,11 +36,13 @@
                 <% for (let i=0; i<4; i++) { %>
                         <% if (!toRead[i]) { } else { %>
                                 <li class="main" id="book<%= i %>">
-                                        <p id="title"><%= toRead[i].bookName %></p>
-                                        <form action="/shelves/<%= toRead[i]._id %>?_method=DELETE" method="POST">
-                                                <button class="delete" type="submit">🗑</button>
-                                        </form> 
-                                        <a class="edit" href="/shelves/<%= toRead[i]._id%>/edit">✏</a>
+                                        <p class="shelves-title"><%= toRead[i].bookName %></p>
+                                        <div class="book-nav">
+                                                <form action="/shelves/<%= toRead[i]._id %>?_method=DELETE" method="POST">
+                                                        <button class="delete" type="submit">🗑</button>
+                                                </form> 
+                                                <a class="edit" href="/shelves/<%= toRead[i]._id%>/edit">✏</a>
+                                        </div>
                                 </li>
                         <% }; %>
                 <% }; %>
@@ -53,11 +58,13 @@
                 <% for (let i=0; i<4; i++) { %>
                         <% if (!read[i]) { } else { %>
                                 <li class="main" id="book<%= i %>">
-                                        <p id="title"><%= read[i].bookName %></p>
-                                        <form action="/shelves/<%= read[i]._id %>?_method=DELETE" method="POST">
-                                                <button class="delete" type="submit">🗑</button>
-                                        </form> 
-                                        <a class="edit" href="/shelves/<%= read[i]._id%>/edit">✏</a>
+                                        <p class="shelves-title"><%= read[i].bookName %></p>
+                                        <div class="book-nav">
+                                                <form action="/shelves/<%= read[i]._id %>?_method=DELETE" method="POST">
+                                                        <button class="delete" type="submit">🗑</button>
+                                                </form> 
+                                                <a class="edit" href="/shelves/<%= read[i]._id%>/edit">✏</a>
+                                        </div>
                                 </li>
                         <% }; %>
                 <% }; %>
