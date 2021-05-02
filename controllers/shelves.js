@@ -4,10 +4,11 @@ module.exports = {
     getShelf,
     add,
     delete: deleteBook,
+    edit,
+    update,
 }
 
 function getShelf(req, res) { 
-    console.log(req.user);
     let books = [];
     req.user.books.forEach(function(book){
         if(book.status === req.params.status){
@@ -18,7 +19,7 @@ function getShelf(req, res) {
     if (req.params.status === "toRead") {
         title = "To Read";
     };
-    res.render('shelves/view', { books, title, status: req.params.status, user: req.user });
+    res.render('view/index', { books, title, status: req.params.status, user: req.user });
 }
 
 function add(req, res) {
@@ -34,4 +35,18 @@ function deleteBook(req, res) {
     req.user.save(function(err) {
         res.redirect(`/shelves/${req.params.status}/view`);
     });
+}
+
+function edit(req, res) {
+    const book = req.user.books.id(req.params.id);
+    console.log('shelves.edit called');
+    res.render('view/edit', { book, user: req.user, status: req.params.status });
+}
+
+function update(req, res) {
+    const bookIdx = req.user.books.findIndex(book => (book.id === req.params.id));
+    req.user.books.splice(bookIdx, 1, req.body);
+    req.user.save(function() {
+        res.redirect(`/shelves/${req.params.status}/view`);        
+    })
 }

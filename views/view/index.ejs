@@ -3,12 +3,13 @@
 <h1 class="status-title"><%= title %></h1>
 
 <ul class="status-view">
-<% books.forEach(function(s) { %>
+<% books.forEach(function(s, i) { %>
     <li class="status">
         <p class="view-title"><%= s.bookName %></p>
         <form action="/shelves/<%= status %>/<%= s._id %>?_method=DELETE" method="POST">
             <button class="view-delete" type="submit">🗑</button>
         </form>
+        <a class="edit" href="/shelves/<%= status %>/<%= books[i]._id%>/edit">✏</a>
     </li>
     
 <% }); %>
