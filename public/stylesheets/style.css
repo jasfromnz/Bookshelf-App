@@ -211,3 +211,12 @@ input.add-submit {
     border-radius: 5%;
     border-width: 1px;
 }
+
+div.edit-title {
+    display: flex;
+    justify-content: center;
+}
+
+h1.edit-title {
+    color: white;
+}

@@ -1,12 +1,33 @@
-<form action="/shelves/<%= book.id %>/edit" method="POST">
-    <label>Book Title
-        <input type="text" name="bookName" value="<%= book.bookName %>">
-    </label>
-    <label>Status
-        <select name="status">
-                <option value="reading">Reading</option>
-                <option value="toRead">Want to Read</option>
-                <option value="read">Already Read</option>
-        </select>
-    <input type="submit">
+<%- include('../partials/header') %>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var options = {};
+            var instances = M.FormSelect.init(elems, options);
+    });
+</script>
+
+<div class="edit-title">
+    <h1 class="edit-title">Edit Book</h1>
+</div>
+
+<form class="col s12" id="add-form" action="/shelves/<%= book.id %>/edit" method="POST">
+    <div class="add-form">
+            <div class="input-field col s12">
+                    <input type="text" name="bookName">
+                    <label for="bookName">Book Title</label>
+            </div>
+            <div class="input-field col s12">
+                    <select name="status">
+                            <option disabled selected>Choose Status</option>
+                            <option value="reading">Reading</option>
+                            <option value="toRead">Want to Read</option>
+                            <option value="read">Already Read</option>
+                    </select>
+            </div>
+            <input class="add-submit" type="submit" value="Add Book">
+    </div>
 </form>
+
+<%- include('../partials/footer') %>
