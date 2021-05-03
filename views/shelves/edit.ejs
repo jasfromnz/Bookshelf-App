@@ -15,7 +15,7 @@
 <form class="col s12" id="add-form" action="/shelves/<%= book.id %>/edit" method="POST">
     <div class="add-form">
             <div class="input-field col s12">
-                    <input type="text" name="bookName">
+                    <input type="text" name="bookName" value="<%= book.bookName %>">
                     <label for="bookName">Book Title</label>
             </div>
             <div class="input-field col s12">
