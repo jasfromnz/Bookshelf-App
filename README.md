@@ -15,7 +15,7 @@ A web app that allows a user to add and organize books in their virtual library.
 ## Screenshots
 ![wireframe](./screenshots/Wireframe.png)
 ![Entity Relationship Diagram](./screenshots/ERD.png)
-![Screenshot](./screenshots/screenshot.png)
+![Screenshot](./screenshots/screenshot.PNG)
 
 ## Getting Started
 [Click here](https://book-stacks-app.herokuapp.com/) to get started. Login with Google and start adding books to your shelves!
